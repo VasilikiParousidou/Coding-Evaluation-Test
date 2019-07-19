@@ -31,10 +31,9 @@ public class AscendingMinima {
             ama.add(window[0]);
             return ama;
         }
-        // First, we find the minimum element of the window and add it to the list. Let the index of this
-        // element be i. Then it finds the minimum from i+1 to k element and add it to the list. It repeats
-        // until the last element of the window is added to the list.
-        int min = window[0];
+
+        // First, we find the minimum element of the window and add it to the list.
+        int min   = window[0];
         int index = 0;
         for(int k=1; k<window.length; k++)
         {
@@ -45,6 +44,9 @@ public class AscendingMinima {
             }
         }
         ama.add(min);
+
+        // Then we find the minimum element from index+1 to the last element and add it to the list. We repeat
+        // until the last element of the window is added to the list.
         ama = ascendingMinima(Arrays.copyOfRange(window, index+1,window.length),ama);
         return ama;
     }
@@ -65,8 +67,9 @@ public class AscendingMinima {
             prevAma.remove(0);
         }
         int i = prevAma.size();
-        while (prevAma.get(i-1)>newElement)
+        while (true)
         {
+            if (prevAma.get(i - 1) <= newElement) break;
             prevAma.remove(i-1);
             i--;
             if(i<1)
@@ -87,11 +90,22 @@ public class AscendingMinima {
 
     public static ArrayList<Integer> ascendingMinimaAlgorithm(int[] array,int k)
     {
+        // window consists of the first k elements of the array
         int[] window = Arrays.copyOfRange(array, 0,k);
-        ArrayList<Integer> ama = new ArrayList<>();
+
+        // we initialize the array lists
+        ArrayList<Integer> ama    = new ArrayList<>();
         ArrayList<Integer> result = new ArrayList<>();
+
+        // First, we call ascendingMinima for the first window
         ama = ascendingMinima(window,ama);
+
+        // we add the first element of thw array list that is returned to the result array list
+        // because this element is the minimum of thw window
         result.add(ama.get(0));
+
+        // we adjust ascending minima to shift of the window until the last element of the
+        // array is examined
         for(int i=k;i<array.length;i++)
         {
             int new_element = array[i];
@@ -101,15 +115,5 @@ public class AscendingMinima {
         }
         return result;
     }
-    public static void main(String[] args)
-    {
-       int[] window1        = { 7, 4, 8, 6, 3, 4, 2, 1, 2};
-       ArrayList<Integer> ama = new ArrayList<>();
-       ArrayList<Integer> result1 = AscendingMinima.ascendingMinima(window1,ama);
-       System.out.println(result1);
-       System.out.println(result1.size());
-       System.out.println(result1.get(0));
 
-
-    }
 }

@@ -14,10 +14,6 @@ import java.util.ArrayList;
 public class StatisticUtilsArrayList {
 
     /**
-     * This variable is responsible for sending information to the log file.
-     */
-
-    /**
      * This variable is an object that contains the values of an array list.
      */
     private static DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
@@ -52,17 +48,17 @@ public class StatisticUtilsArrayList {
     /**
      * This method is responsible for estimating the minimum value from an array list of double numbers.
      *
-     * @param array An array list of double numbers.
+     * @param arrayList An array list of double numbers.
      *
      * @return The minimum value, as a double number
      */
-    public static double min(ArrayList<Double> array)
+    public static double min(ArrayList<Double> arrayList)
     {
         // First, it clears the descriptiveStatistics object.
         descriptiveStatistics.clear();
 
         // It adds the values of the array to the descriptiveStatistics object
-        fillDescriptiveStatistics(array);
+        fillDescriptiveStatistics(arrayList);
 
         return descriptiveStatistics.getMin();
     }
@@ -70,17 +66,17 @@ public class StatisticUtilsArrayList {
     /**
      * This method is responsible for estimating the maximum value from an array list of double numbers.
      *
-     * @param array An array list of double numbers.
+     * @param arrayList An array list of double numbers.
      *
      * @return The maximum value, as a double number
      */
-    public static double max(ArrayList<Double> array)
+    public static double max(ArrayList<Double> arrayList)
     {
         // First, it clears the descriptiveStatistics object.
         descriptiveStatistics.clear();
 
         // It adds the values of the array to the descriptiveStatistics object
-        fillDescriptiveStatistics(array);
+        fillDescriptiveStatistics(arrayList);
 
         return descriptiveStatistics.getMax();
     }
@@ -88,52 +84,52 @@ public class StatisticUtilsArrayList {
     /**
      * This method is responsible for estimating the median value from an array list of double numbers.
      *
-     * @param array An array list of double numbers.
+     * @param arrayList An array list of double numbers.
      *
      * @return The median value, as a double number
      */
-    public static double median(ArrayList<Double> array)
+    public static double median(ArrayList<Double> arrayList)
     {
         // First, it clears the descriptiveStatistics object.
         descriptiveStatistics.clear();
 
         // It adds the values of the array to the descriptiveStatistics object
-        fillDescriptiveStatistics(array);
+        fillDescriptiveStatistics(arrayList);
 
         return descriptiveStatistics.getPercentile(50);
     }
     /**
      * This method is responsible for estimating the mean value from an array list of double numbers.
      *
-     * @param array An array list of double numbers.
+     * @param arrayList An array list of double numbers.
      *
      * @return The mean value, as a double number
      */
-    public static double mean(ArrayList<Double> array)
+    public static double mean(ArrayList<Double> arrayList)
     {
         // First, it clears the descriptiveStatistics object.
         descriptiveStatistics.clear();
 
         // It adds the values of the array to the descriptiveStatistics object
-        fillDescriptiveStatistics(array);
+        fillDescriptiveStatistics(arrayList);
 
         return descriptiveStatistics.getMean();
     }
 
     /**
-     *  This method is responsible for estimating the standard deviation from an array of double numbers.
+     *  This method is responsible for estimating the standard deviation from an array list of double numbers.
      *
-     * @param array An array of double numbers.
+     * @param arrayList An array of double numbers.
      *
      * @return The standard deviation, as a double number
      */
-    public static double standDev(ArrayList<Double> array)
+    public static double standDev(ArrayList<Double> arrayList)
     {
         // First, it clears the descriptiveStatistics object.
         descriptiveStatistics.clear();
 
         // It adds the values of the array to the descriptiveStatistics object
-        fillDescriptiveStatistics(array);
+        fillDescriptiveStatistics(arrayList);
 
         return descriptiveStatistics.getStandardDeviation();
     }

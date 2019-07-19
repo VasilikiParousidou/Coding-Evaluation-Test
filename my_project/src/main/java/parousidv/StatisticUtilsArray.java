@@ -9,8 +9,8 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
  * @version 1.1
  * @since 15.07.2019
 */
-class StatisticUtilsArray
-{
+public class StatisticUtilsArray {
+
     /**
      * This variable is an object that contains the values of an array.
      */

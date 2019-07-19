@@ -5,6 +5,13 @@ import static java.lang.Double.NaN;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+/**
+ * This is a test set for the StatisticUtilsArray class.
+ *
+ *  @author Vasiliki Parousidou
+ *  @version 1.1
+ *  @since 15.07.2019
+ */
 public class StatisticUtilsArrayTest {
 
     // Initializing auxiliary variables.

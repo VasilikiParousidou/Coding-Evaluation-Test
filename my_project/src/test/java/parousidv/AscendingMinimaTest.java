@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class AscendingMinimaTest {
 
-    // Initializing variables
+    // Initializing variables for testing
     private int[] window1        = { 8, 9, 5, 3, 6, 5, 1, 1, 0};
     private int[] window2        = { 7, 4, 8, 6, 3, 4, 2, 1, 2};
     private int[] window3        = { 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -85,6 +85,7 @@ public class AscendingMinimaTest {
         }
 
     }
+
     /**
      * This method is used for testing the minimaAdjustedToShift method.
      */
