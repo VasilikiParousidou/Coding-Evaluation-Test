@@ -2,68 +2,134 @@ package parousidv;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
-/** This class provides a set of statistical values for an array of double values
+/**
+ * This class provides a set of statistical values for an array of double values
+ *
+ * @author Vasiliki Parousidou
+ * @version 1.1
+ * @since 15.07.2019
 */
-public class StatisticUtilsArray
+class StatisticUtilsArray
 {
-
-    // @param my_array An array of double values
-
-    public double[] my_array = {2.3, 4.5 ,1.2};
-    DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
-    // Constructor
-    public StatisticUtilsArray(){
-
-        for(int i=0; i<my_array.length; i++) {
-            descriptiveStatistics.addValue(my_array[i]);
-        }
-
-    }
-    public StatisticUtilsArray(double[] array){
-
-        for(int i=0; i<array.length; i++) {
-            descriptiveStatistics.addValue(array[i]);
-        }
-
-    }
-    /** Gets the Minimum Value
-     * @param descriptiveStatistics An object that contains the values of the array
-     * @return The minimum double value
+    /**
+     * This variable is an object that contains the values of an array.
      */
-    public static double min(DescriptiveStatistics descriptiveStatistics)
+    private static DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
+
+    /**
+     * This method is responsible for adding the values from an array to the DescriptiveStatistics object.
+     *
+     * @param array An array that contains double numbers.
+     */
+    static void fillDescriptiveStatistics(double[] array)
     {
+        /* In case the input is null */
+        if (array == null)
+        {
+            System.out.println("The array input is null.");
+        }
+        /* In case the array is empty. */
+        else if (array.length == 0)
+        {
+            System.out.println("The array input is empty.");
+        }
+        /* Add the values to the descriptiveStatistics object */
+        else
+        {
+            for (double v : array) {
+                descriptiveStatistics.addValue(v);
+            }
+        }
+    }
+
+    /**
+     * This method is responsible for estimating the minimum value from an array of double numbers.
+     *
+     * @param array An array of double numbers.
+     *
+     * @return The minimum value, as a double number
+     */
+    public static double min(double[]  array)
+    {
+        // First, it clears the descriptiveStatistics object.
+        descriptiveStatistics.clear();
+
+        // It adds the values of the array to the descriptiveStatistics object
+        fillDescriptiveStatistics(array);
+
         return descriptiveStatistics.getMin();
     }
-    /** Gets the Maximum Value
-     * @param descriptiveStatistics An object that contains the values of the array
-     * @return The maximum double value
+
+    /**
+     * This method is responsible for estimating the maximum value from an array of double numbers.
+     *
+     * @param array An array of double numbers.
+     *
+     * @return The maximum value, as a double number
      */
-    public static double max(DescriptiveStatistics descriptiveStatistics)
+    public static double max(double[]  array)
     {
+        // First, it clears the descriptiveStatistics object.
+        descriptiveStatistics.clear();
+
+        // It adds the values of the array to the descriptiveStatistics object
+        fillDescriptiveStatistics(array);
+
         return descriptiveStatistics.getMax();
     }
-    /** Gets the Median Value
-     * @param descriptiveStatistics An object that contains the values of the array
-     * @return The median double value
+
+    /**
+     * This method is responsible for estimating the median value from an array of double numbers.
+     *
+     * @param array An array of double numbers.
+     *
+     * @return The median value, as a double number
      */
-    public static double median(DescriptiveStatistics descriptiveStatistics)
+    public static double median(double[]  array)
     {
+        // First, it clears the descriptiveStatistics object.
+        descriptiveStatistics.clear();
+
+        // It adds the values of the array to the descriptiveStatistics object
+        fillDescriptiveStatistics(array);
+
         return descriptiveStatistics.getPercentile(50);
     }
-    /** Gets the Mean Value
-     * @param descriptiveStatistics An object that contains the values of the array
-     * @return The mean double value
+
+    /**
+     * This method is responsible for estimating the mean value from an array of double numbers.
+     *
+     * @param array An array of double numbers.
+     *
+     * @return The mean value, as a double number
      */
-    public static double mean(DescriptiveStatistics descriptiveStatistics)
+    public static double mean(double[]  array)
     {
+        // First, it clears the descriptiveStatistics object.
+        descriptiveStatistics.clear();
+
+        // It adds the values of the array to the descriptiveStatistics object
+        fillDescriptiveStatistics(array);
+
         return descriptiveStatistics.getMean();
     }
-    /** Gets the Standard Deviation
-     * @param descriptiveStatistics An object that contains the values of the array
-     * @return The standard deviation double value
+
+
+    /**
+     *  This method is responsible for estimating the standard deviation from an array of double numbers.
+     *
+     * @param array An array of double numbers.
+     *
+     * @return The standard deviation, as a double number
      */
-    public static double standDev(DescriptiveStatistics descriptiveStatistics)
+    public static double standDev(double[]  array)
     {
+        // First, it clears the descriptiveStatistics object.
+        descriptiveStatistics.clear();
+
+        // It adds the values of the array to the descriptiveStatistics object
+        fillDescriptiveStatistics(array);
+
         return descriptiveStatistics.getStandardDeviation();
     }
 }
